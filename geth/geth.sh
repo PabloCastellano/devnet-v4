@@ -3,12 +3,14 @@
 geth init --datadir /db /config/genesis.json
 #geth init --datadir /db /config/geth-genesis.json
 
+echo eip4844 > /passwd1
+geth account new --password /passwd1
+
 # geth won't start when --eip4844 is specified:
 # Fatal: Failed to register the Ethereum service: database contains incompatible genesis (have 37d4fce0f355f3e872cb63b6fa9b7b1a0a628f675c068af1fdc34869224bcbd6, new 879f5ee46274b55b2428bdf5ea0d1f27a3cee5b405762bc563f5a0edd0e
 exec geth \
   --datadir /db \
   --networkid 4844001004 \
-  --nodiscover \
   --syncmode=full \
   --verbosity 3 \
   --authrpc.jwtsecret /config/jwtsecret \
@@ -19,4 +21,4 @@ exec geth \
   --http \
   --http.addr 0.0.0.0 \
   --http.port 8545 \
-  --http.api=db,eth,net,web3,admin
+  --http.api=eth,net,web3,admin
