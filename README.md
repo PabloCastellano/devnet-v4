@@ -1,6 +1,8 @@
-# Running a node (Lighthouse/Geth) on EIP-4844 devnet-3
+# Running a node (Lighthouse/Geth) on EIP-4844 devnet-4
 
-Docker Compose setup for running a Lighthouse/Geth node on devnet v3. Builds docker images from `eip4844` branches of Lighthouse and Geth.
+**THIS IS WIP, NOT WORKING**
+
+Docker Compose setup for running a Lighthouse/Geth node on devnet v4. Builds docker images from `eip4844` branches of Lighthouse and Geth.
 
 ## Run with Docker
 
@@ -50,7 +52,9 @@ lighthouse bn --purge-db --network eip4844 --datadir ./lighthouse_data/ --execut
 Credit: @realbigsean
 
 ## References 
-
+- [EIP4844-Devnet 4](https://notes.ethereum.org/@samcm/eip4844-devnet-4)
+- [EIP4844 devnet-4 resources](https://4844-devnet-4.ethpandaops.io/)
+- [Blobscan](https://blobscan.4844-devnet-4.ethpandaops.io/)
 - [EIP-4844 devnet-3 Spec & Tracker
 ](https://notes.ethereum.org/@timbeiko/4844-devnet-3)
 - [Devnet v3 Guide](https://hackmd.io/@inphi/Hk_cLBJFo)
