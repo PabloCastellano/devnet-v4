@@ -6,13 +6,16 @@ volumes:
 
 services:
   geth:
+    # image: ethpandaops/geth:mdehoog-eip4844
+    # image: ethpandaops/geth:mdehoog-eip4844-8444ecf
     build:
       context: ./geth
       dockerfile: Dockerfile.geth
     ports:
       - '8545:8545'
+      - '8551:8551'
       - '30303:30303'
-    command: /usr/local/bin/geth.sh
+    entrypoint: geth.sh
     volumes:
       - 'geth_data:/db'
       - type: bind
@@ -31,18 +34,19 @@ services:
       dockerfile: Dockerfile.lighthouse
     ports:
       - "5052:5052"
-      - "8000:8000"
       - "9000:9000"
     command: >
       lighthouse bn
-      --network eip4844
       --datadir /data
+      --testnet-dir /network-config
       --execution-jwt /config/jwtsecret
       --execution-endpoint http://geth:8551
-      --debug-level debug
-      --trusted-setup-file /config/trusted_setup.txt
-      --boot-nodes enr:-Iq4QAw-ZQb0IiosZgDDcK5ehLs1XmwT0BWU1E1W3ZnhlAAwAE3I46dgCsCbeB5QUwcpDmpFfveTfKF7-tiIg0KWGjqGAYXoIfe6gmlkgnY0gmlwhKEjXcqJc2VjcDI1NmsxoQN4HpB2GMFY2MzwO9hGFjqRG47OX4hGDliAG-mJNWkEr4N1ZHCCIyk 
+      --debug-level info
+      --boot-nodes enr:-Iq4QAw-ZQb0IiosZgDDcK5ehLs1XmwT0BWU1E1W3ZnhlAAwAE3I46dgCsCbeB5QUwcpDmpFfveTfKF7-tiIg0KWGjqGAYXoIfe6gmlkgnY0gmlwhKEjXcqJc2VjcDI1NmsxoQN4HpB2GMFY2MzwO9hGFjqRG47OX4hGDliAG-mJNWkEr4N1ZHCCIyk
       --http
+      --http-port 5052
+      --port 9000
+    # The argument '--testnet-dir <DIR>' cannot be used with '--network eip4844'
     volumes:
       - lighthouse_data:/data
       - type: bind
@@ -51,3 +55,8 @@ services:
       - type: bind
         source: ./geth/jwtsecret
         target: /config/jwtsecret
+      - type: bind
+        source: ./network-configs/devnet-4/
+        target: /network-config
+
+# TODO: add blobscan service
