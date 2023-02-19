@@ -1,6 +1,14 @@
-# Running a node (Lighthouse/Geth) on EIP-4844 devnet-4
+# WIP
 
 **THIS IS WIP, NOT WORKING**
+
+* geth will not sync:
+
+```
+Local chain is post-merge, waiting for beacon client sync switch-over... 
+```
+
+# Running a node (Lighthouse/Geth) on EIP-4844 devnet-4
 
 Docker Compose setup for running a Lighthouse/Geth node on devnet v4. Builds docker images from `eip4844` branches of Lighthouse and Geth.
 
