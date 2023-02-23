@@ -7,7 +7,7 @@ Docker Compose setup for running a Prysm/Geth node on devnet v4. Uses docker ima
 ## Run with Docker
 
 ```
-docker-compose up -d
+make run
 ```
 
 ## References

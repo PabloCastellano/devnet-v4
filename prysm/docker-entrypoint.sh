@@ -40,5 +40,4 @@ exec /app/cmd/beacon-chain/beacon-chain \
 	--bootstrap-node="enr:-Iq4QAw-ZQb0IiosZgDDcK5ehLs1XmwT0BWU1E1W3ZnhlAAwAE3I46dgCsCbeB5QUwcpDmpFfveTfKF7-tiIg0KWGjqGAYXoIfe6gmlkgnY0gmlwhKEjXcqJc2VjcDI1NmsxoQN4HpB2GMFY2MzwO9hGFjqRG47OX4hGDliAG-mJNWkEr4N1ZHCCIyk" \
 	--genesis-state=/data/testnet_spec/genesis.ssz \
 	--chain-config-file=/data/testnet_spec/config.yaml \
-	--execution-endpoint=http://geth:8551 \
-	--force-clear-db
+	--execution-endpoint=http://geth:8551
