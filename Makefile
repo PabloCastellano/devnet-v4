@@ -1,6 +1,10 @@
 attach:
 	docker-compose exec geth geth --datadir /data attach
 
+peers:
+	docker-compose exec geth geth --datadir /data attach --exec admin.peers
+	docker-compose exec geth geth --datadir /data attach --exec net.peerCount
+
 sh1:
 	docker-compose exec geth sh
 

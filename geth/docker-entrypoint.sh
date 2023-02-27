@@ -22,7 +22,11 @@ exec geth \
 	--datadir /data \
 	--bootnodes="$(tr '\n' ',' < /data/bootnodes.txt)" \
 	--networkid="$(cat /data/chainid.txt)" \
+	--ws \
+	--ws.addr=0.0.0.0 \
 	--ws.api="eth,net,engine,web3,txpool" \
+	--http \
+	--http.addr=0.0.0.0 \
 	--http.api="eth,net,engine,web3,txpool" \
 	--syncmode=full \
 	--authrpc.jwtsecret /config/jwtsecret \
