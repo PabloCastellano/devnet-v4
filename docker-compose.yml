@@ -20,12 +20,13 @@ services:
         target: /config/jwtsecret
 
   prysm:
-    image: ethpandaops/prysm:eip4844-1-08a910e
+    image: ethpandaops/prysm:eip4844-6f22cd7
     entrypoint: docker-entrypoint.sh
     ports:
       - "5052:5052"
       - "8000:8000"
       - "9000:9000"
+      - "12000:12000"
       - "13000:13000"
     volumes:
       - './data:/data'
